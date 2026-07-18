@@ -27,6 +27,59 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Visible keyboard focus indicator (WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Keep a strong focus ring on dark surfaces too */
+.hero a:focus-visible,
+.breadcrumb-inner a:focus-visible,
+.footer a:focus-visible {
+  outline-color: #fbbf24;
+}
+
+/* Skip link — hidden until focused (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 100;
+  background: #ffffff;
+  color: #0b1120;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.35);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  text-decoration: none;
+}
+
+/* Links in body prose carry an underline so they are not distinguished
+   by color alone (WCAG 1.4.1) */
+.section-inner p a,
+.contact a {
+  text-decoration: underline;
+}
+
+/* Respect reduced-motion preferences (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 h1,
 h2,
 h3 {
@@ -569,7 +622,7 @@ a.workshop-card:hover {
 
 .footer .small {
   font-size: 0.8rem;
-  color: #6b7280;
+  color: #838c9a;
 }
 
 
